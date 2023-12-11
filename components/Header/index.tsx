@@ -1,21 +1,16 @@
+import Link from "next/link"
 import { twMerge } from "tw-merge"
 import { Container } from "../Container"
 import { Logo, LoomLogoMain } from "../Logos"
+import { Hamburger } from "../Icons/Hamburger"
+import { primaryMenu } from "@/constants"
+import { MobileMenuTeam } from "../Icons/MobileMenuTeam"
+import { MobileMenu } from "./MobileMenu"
 
-export const primaryMenu = [
-  {
-    label: "Link 1",
-    linkUrl: "/",
-    intent: "navText",
-    className: "",
-    size: "small",
-    shadow: false,
-    reverseIcon: false,
-    icon: null,
-  },
-]
-
-type HeaderProps = {
+const Header = ({
+  logoCentered,
+  headerAnimation = true,
+}: {
   /**
    * Description goes here
    */
@@ -36,14 +31,7 @@ type HeaderProps = {
    * Description goes here
    */
   headerAnimation?: boolean
-}
-
-const Header = ({
-  logo,
-  logoCentered,
-
-  headerAnimation = true,
-}: HeaderProps) => {
+}) => {
   // const [scrolled, setScrolled] = useState(false)
 
   // useEffect(() => {
@@ -79,7 +67,7 @@ const Header = ({
         <div
           className={
             logoCentered
-              ? "absolute top-1/2 left-1/2  [transform:translate(-50%,-50%)]"
+              ? "absolute top-1/2 left-1/2 [transform:translate(-50%,-50%)]"
               : "relative"
           }
         >
@@ -91,17 +79,31 @@ const Header = ({
             <ul className="flex items-center">
               {primaryMenu?.map((item) => (
                 <li key={item.label}>
-                  <a href="" className="py-2 px-4">
+                  <Link href="#" className="py-2 px-4">
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </nav>
         </div>
 
-        <div>cta</div>
+        <div className="flex items-center gap-4">
+          {/* CTA */}
+
+          <div>
+            <Link href={"/"}>cta</Link>
+          </div>
+
+          {/* Hamburger */}
+          <button className="bg-thd-color-violet-10 w-12 h-12 rounded-full flex items-center justify-center 2xl:hidden">
+            <Hamburger />
+          </button>
+        </div>
       </Container>
+
+      {/* Mobile Menu */}
+      <MobileMenu />
     </header>
   )
 }

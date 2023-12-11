@@ -1,36 +1,57 @@
+import { MobileMenuTeam } from "@/components/Icons/MobileMenuTeam"
+
 export const companyName: string = "Loom"
 // export const MAX_EXCERPT_LENGTH = 93;
 
-export const navPrimary = [
+export const primaryMenu = [
   {
-    label: "Search",
-    linkUrl: "",
-    // icon: <MagnifyingGlassIcon className="h-5 w-5 text-black" />,
-    reverseIcon: false,
-    intent: "navText",
-    className: "",
-    size: "small",
-    shadow: false,
-  },
-  {
-    label: "For individuals",
-    linkUrl: "",
-    // icon: <ChevronDownIcon className="h-6 w-5" />,
-    reverseIcon: true,
-    intent: "navText",
-    className: "",
-    size: "small",
-    shadow: false,
-  },
-  {
-    label: "For charities",
+    label: "Link 1",
     linkUrl: "/",
-    icon: "",
-    reverseIcon: false,
-    intent: "navText",
     className: "",
-    size: "small",
-    shadow: false,
+    // submenu:
+  },
+]
+
+export const MOBILE_MENU_LIST = [
+  {
+    title: "The Title",
+    listItems: [
+      {
+        label: "Link 1",
+        linkUrl: "/",
+        className: "",
+      },
+      {
+        label: "Link 2",
+        linkUrl: "/",
+        className: "",
+      },
+      {
+        label: "Link 3",
+        linkUrl: "/",
+        className: "",
+      },
+    ],
+  },
+  {
+    title: "The Title 2",
+    listItems: [
+      {
+        label: "Link 1",
+        linkUrl: "/",
+        className: "",
+      },
+      {
+        label: "Link 2",
+        linkUrl: "/",
+        className: "",
+      },
+      {
+        label: "Link 3",
+        linkUrl: "/",
+        className: "",
+      },
+    ],
   },
 ]
 

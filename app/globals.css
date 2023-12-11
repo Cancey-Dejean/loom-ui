@@ -20,7 +20,9 @@
 
 :root {
   --thd-font-body: Circular, Helvetica, sans-serif;
+  --thd-transition-base: all 0.3s ease-in-out;
 
+  --thd-nav-h-sm: 6rem;
   --thd-nav-h-lg: 7.625rem;
 
   --thd-color-grey-10: #f1f0f3;
@@ -34,7 +36,6 @@
   --thd-color-grey-90: #252434;
   --thd-color-grey-100: #111019;
   --thd-color-grey-light-border: #e4e2e7;
-
   --thd-color-blue-10: #e3f3ff;
   --thd-color-blue-20: #c4d4ff;
   --thd-color-blue-30: #9cb7ff;
@@ -108,11 +109,12 @@
   --thd-color-green-80: #224229;
   --thd-color-green-90: #142a19;
   --thd-color-green-100: #071409;
-
-  --thd-color-white: #fff;
   --thd-color-black: var(--thd-color-grey-100);
 
   --thd-color-button-sh: #7e75e650;
+
+  /* LNS */
+  --lns-color-blurple: hsla(242, 88.4%, 66.3%, 1);
 
   --thd-shadow: 0 0.125rem 0.375rem 0px rgba(0, 0, 0, 0.04),
     0px 0.3125rem 1.125rem 0 rgba(0, 0, 0, 0.06),
@@ -158,6 +160,26 @@ body {
 
 .skip-link:focus {
   translate: 0;
+}
+
+details summary {
+  list-style-type: none;
+}
+
+details svg {
+  transition: var(--thd-transition-base);
+}
+details .menu-item-body {
+  opacity: 0;
+  transition: var(--thd-transition-base);
+}
+
+details[open] .menu-item-body {
+  opacity: 1;
+}
+
+details[open] svg {
+  transform: rotate(-180deg);
 }
 
 /* Storybook Styles ONLY: DO NOT DELETE */
