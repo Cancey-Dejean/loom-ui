@@ -1,11 +1,12 @@
+"use client"
 import Link from "next/link"
 import { twMerge } from "tw-merge"
 import { Container } from "../Container"
 import { Logo, LoomLogoMain } from "../Logos"
 import { Hamburger } from "../Icons/Hamburger"
 import { primaryMenu } from "@/constants"
-import { MobileMenuTeam } from "../Icons/MobileMenuTeam"
 import { MobileMenu } from "./MobileMenu"
+import { useState } from "react"
 
 const Header = ({
   logoCentered,
@@ -55,56 +56,64 @@ const Header = ({
   //   }
   // }, []) // Empty dependency array means this effect runs once on mount and clean up on unmount
 
+  const [isOpen, setIsOpen] = useState(false)
+
+  const openDialog = () => setIsOpen(true)
+  const closeDialog = () => setIsOpen(false)
+
   return (
-    <header
-      className={twMerge(
-        "left-0 top-0 z-50 h-[var(--thd-nav-h-lg)] flex items-center w-full py-10px bg-white  transition-all duration-[.3s] ease-in-out"
-        // headerAnimation ? "fixed " : "sticky ",
-        // scrolled ? " shadow-lg lg:bg-white lg:py-2" : "py-0 lg:py-6"
-      )}
-    >
-      <Container className="relative flex items-center justify-between gap-4 bg-white">
-        <div
-          className={
-            logoCentered
-              ? "absolute top-1/2 left-1/2 [transform:translate(-50%,-50%)]"
-              : "relative"
-          }
-        >
-          <Logo logo={<LoomLogoMain />} ariaLabel="Loom Logo" />
-        </div>
-
-        <div className="flex-1">
-          <nav className={twMerge("w-full items-center text-right")}>
-            <ul className="flex items-center">
-              {primaryMenu?.map((item) => (
-                <li key={item.label}>
-                  <Link href="#" className="py-2 px-4">
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </div>
-
-        <div className="flex items-center gap-4">
-          {/* CTA */}
-
-          <div>
-            <Link href={"/"}>cta</Link>
+    <>
+      <header
+        className={twMerge(
+          "fixed left-0 top-0 z-[20] h-nav-h-sm xl:h-nav-h-lg flex items-center w-full py-10px bg-white  transition-all duration-[.3s] ease-in-out"
+          // headerAnimation ? "fixed " : "sticky ",
+          // scrolled ? " shadow-lg lg:bg-white lg:py-2" : "py-0 lg:py-6"
+        )}
+      >
+        <Container className="relative flex items-center justify-between gap-4 bg-white">
+          <div
+            className={
+              logoCentered
+                ? "absolute top-1/2 left-1/2 [transform:translate(-50%,-50%)]"
+                : "relative"
+            }
+          >
+            <Logo logo={<LoomLogoMain />} ariaLabel="Loom Logo" />
           </div>
 
-          {/* Hamburger */}
-          <button className="bg-thd-color-violet-10 w-12 h-12 rounded-full flex items-center justify-center 2xl:hidden">
-            <Hamburger />
-          </button>
-        </div>
-      </Container>
+          <div className="flex-1">
+            <nav className={twMerge("w-full items-center text-right")}>
+              <ul className="flex items-center">
+                {primaryMenu?.map((item) => (
+                  <li key={item.label}>
+                    <Link href="#" className="py-2 px-4">
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
+
+          <div className="flex items-center gap-4">
+            {/* CTA */}
+            <div>
+              <Link href={"/"}>cta</Link>
+            </div>
+
+            {/* Hamburger */}
+            <div>
+              <button className="bg-thd-color-violet-10 w-12 h-12 rounded-full flex items-center justify-center 2xl:hidden">
+                <Hamburger />
+              </button>
+            </div>
+          </div>
+        </Container>
+      </header>
 
       {/* Mobile Menu */}
       <MobileMenu />
-    </header>
+    </>
   )
 }
 

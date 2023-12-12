@@ -19,17 +19,17 @@ export const MOBILE_MENU_LIST = [
       {
         label: "Link 1",
         linkUrl: "/",
-        className: "",
+        icon: <MobileMenuTeam />,
       },
       {
         label: "Link 2",
         linkUrl: "/",
-        className: "",
+        icon: <MobileMenuTeam />,
       },
       {
         label: "Link 3",
         linkUrl: "/",
-        className: "",
+        icon: <MobileMenuTeam />,
       },
     ],
   },
@@ -39,17 +39,17 @@ export const MOBILE_MENU_LIST = [
       {
         label: "Link 1",
         linkUrl: "/",
-        className: "",
+        icon: <MobileMenuTeam />,
       },
       {
         label: "Link 2",
         linkUrl: "/",
-        className: "",
+        icon: <MobileMenuTeam />,
       },
       {
         label: "Link 3",
         linkUrl: "/",
-        className: "",
+        icon: <MobileMenuTeam />,
       },
     ],
   },

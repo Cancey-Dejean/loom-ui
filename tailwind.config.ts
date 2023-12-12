@@ -11,6 +11,10 @@ const config: Config = {
       maxWidth: {
         container: "var(--thd-container-width)",
       },
+      height: {
+        "nav-h-sm": "var(--thd-nav-h-sm)",
+        "nav-h-lg": "var(--thd-nav-h-lg)",
+      },
       colors: {
         "thd-color-violet": {
           0: "var(--thd-color-violet-0)",

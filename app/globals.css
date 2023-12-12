@@ -178,9 +178,11 @@ details[open] .menu-item-body {
   opacity: 1;
 }
 
-details[open] svg {
+details[open] summary svg {
   transform: rotate(-180deg);
 }
+
+/* Modal */
 
 /* Storybook Styles ONLY: DO NOT DELETE */
 .sbdocs-content {

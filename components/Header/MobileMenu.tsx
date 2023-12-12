@@ -5,22 +5,31 @@ import { MOBILE_MENU_LIST } from "@/constants"
 
 export const MobileMenu = () => {
   return (
-    <div className="fixed inset-0 z-40 bg-white 2xl:hidden">
-      <ul>
-        {MOBILE_MENU_LIST.map((item) => (
-          <li
-            className="border-b border-thd-color-grey-20 last:border-0"
-            key={item.title}
-          >
-            <MobileMenuItem title={item.title}>
+    <ul className="mt-[var(--thd-nav-h-sm)]">
+      {MOBILE_MENU_LIST.map((item) => (
+        <li
+          className="border-b border-thd-color-grey-20 last:border-0"
+          key={item.title}
+        >
+          <MobileMenuItem title={item.title}>
+            <ul>
               {item.listItems.map((listItem) => (
-                <p key={listItem.label}>{listItem.label}</p>
+                <li>
+                  <Link
+                    href={listItem.linkUrl}
+                    key={listItem.label}
+                    className="flex items-center gap-2 py-[7px] px-[26px]"
+                  >
+                    <span className="h-[18px] w-[18px]">{listItem.icon}</span>
+                    {listItem.label}
+                  </Link>
+                </li>
               ))}
-            </MobileMenuItem>
-          </li>
-        ))}
-      </ul>
-    </div>
+            </ul>
+          </MobileMenuItem>
+        </li>
+      ))}
+    </ul>
   )
 }
 
@@ -68,7 +77,7 @@ const MobileMenuItem = ({
             </span>
           </summary>
 
-          <div className="px-3 pb-6">{children}</div>
+          <div className="pb-6">{children}</div>
         </details>
       )}
     </div>
