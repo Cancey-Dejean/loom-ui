@@ -1,11 +1,11 @@
 import Link from "next/link"
 import React from "react"
-import { MobileDropDown } from "./MobileDropDown"
+import { MobileDropDown } from "../Icons/MobileDropDown"
 import { MOBILE_MENU_LIST } from "@/constants"
 
 export const MobileMenu = () => {
   return (
-    <ul className="mt-[var(--thd-nav-h-sm)]">
+    <ul>
       {MOBILE_MENU_LIST.map((item) => (
         <li
           className="border-b border-thd-color-grey-20 last:border-0"

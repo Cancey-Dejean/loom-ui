@@ -137,6 +137,10 @@ body {
   font-family: var(--thd-font-body);
 }
 
+a {
+  display: inline-block;
+}
+
 .skip-link {
   position: fixed;
   top: 0;
@@ -162,8 +166,11 @@ body {
   translate: 0;
 }
 
-details summary {
+details summary,
+details summary::-webkit-details-marker {
   list-style-type: none;
+  display: none;
+  cursor: pointer;
 }
 
 details svg {

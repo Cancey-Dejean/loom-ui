@@ -60,6 +60,8 @@ const config: Config = {
       screens: {
         "2xl": "1440px",
         // => @media (min-width: 1440px) { ... }
+        "3xl": "1600px",
+        // => @media (min-width: 1600px) { ... }
       },
     },
   },

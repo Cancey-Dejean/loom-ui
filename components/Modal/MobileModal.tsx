@@ -16,7 +16,8 @@ export const MobileModal = () => {
       </Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay className="bg-blackA6 data-[state=open]:animate-overlayShow fixed inset-0" />
-        <Dialog.Content className="data-[state=open] :animate-contentShow fixed top-[50%] left-[50%] h-screen w-screen  translate-x-[-50%] translate-y-[-50%] rounded-[6px] bg-white p-[25px] flex flex-col focus:outline-none">
+
+        <Dialog.Content className="data-[state=open] :animate-contentShow fixed top-[50%] left-[50%] h-screen w-screen translate-x-[-50%] translate-y-[-50%] rounded-[6px] bg-white p-[25px] flex flex-col focus:outline-none">
           <div className="my-[var(--thd-nav-h-sm)] h-full">Hello</div>
 
           <Dialog.Close asChild>

@@ -6,6 +6,7 @@ import { Logo, LoomLogoMain } from "../Logos"
 import { Hamburger } from "../Icons/Hamburger"
 import { primaryMenu } from "@/constants"
 import { MobileMenu } from "./MobileMenu"
+import MobileMenuModal from "./MobileMenuModal"
 import { useState } from "react"
 
 const Header = ({
@@ -56,21 +57,26 @@ const Header = ({
   //   }
   // }, []) // Empty dependency array means this effect runs once on mount and clean up on unmount
 
-  const [isOpen, setIsOpen] = useState(false)
+  let [isOpen, setIsOpen] = useState(false)
 
-  const openDialog = () => setIsOpen(true)
-  const closeDialog = () => setIsOpen(false)
+  function handleMobileMenu() {
+    setIsOpen(!isOpen)
+  }
 
   return (
     <>
       <header
         className={twMerge(
-          "fixed left-0 top-0 z-[20] h-nav-h-sm xl:h-nav-h-lg flex items-center w-full py-10px bg-white  transition-all duration-[.3s] ease-in-out"
+          "fixed left-0 top-0 z-[20] h-nav-h-sm xl:h-nav-h-lg flex items-center w-full py-10px bg-white transition-all duration-[.3s] ease-in-out"
           // headerAnimation ? "fixed " : "sticky ",
           // scrolled ? " shadow-lg lg:bg-white lg:py-2" : "py-0 lg:py-6"
         )}
       >
-        <Container className="relative flex items-center justify-between gap-4 bg-white">
+        <Container
+          className={twMerge(
+            "relative flex items-center justify-between gap-4 bg-white"
+          )}
+        >
           <div
             className={
               logoCentered
@@ -102,17 +108,23 @@ const Header = ({
             </div>
 
             {/* Hamburger */}
-            <div>
-              <button className="bg-thd-color-violet-10 w-12 h-12 rounded-full flex items-center justify-center 2xl:hidden">
-                <Hamburger />
-              </button>
-            </div>
+            <button
+              className="bg-thd-color-violet-10 w-12 h-12 rounded-full flex items-center justify-center cursor-pointer 2xl:hidden"
+              onClick={handleMobileMenu}
+            >
+              <Hamburger />
+            </button>
           </div>
         </Container>
       </header>
 
       {/* Mobile Menu */}
-      <MobileMenu />
+      <div className="absolute top-0 left-0 w-full z-50">
+        <MobileMenuModal isOpen={isOpen} handleMobileMenu={handleMobileMenu} />
+      </div>
+      {/* <div className="mobile-menu fixed inset-0 bg-white z-30">
+        <MobileMenu />
+      </div> */}
     </>
   )
 }
