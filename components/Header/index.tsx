@@ -8,6 +8,8 @@ import { primaryMenu } from "@/constants"
 import { MobileMenu } from "./MobileMenu"
 import MobileMenuModal from "./MobileMenuModal"
 import { useState } from "react"
+import { HamburgerX } from "../Icons/HamburgerX"
+import classNames from "classnames"
 
 const Header = ({
   logoCentered,
@@ -67,14 +69,14 @@ const Header = ({
     <>
       <header
         className={twMerge(
-          "fixed left-0 top-0 z-[20] h-nav-h-sm xl:h-nav-h-lg flex items-center w-full py-10px bg-white transition-all duration-[.3s] ease-in-out"
+          "fixed left-0 top-0 z-[20] h-nav-h-lg flex items-center w-full py-10px bg-white transition-all duration-[.3s] ease-in-out"
           // headerAnimation ? "fixed " : "sticky ",
           // scrolled ? " shadow-lg lg:bg-white lg:py-2" : "py-0 lg:py-6"
         )}
       >
         <Container
           className={twMerge(
-            "relative flex items-center justify-between gap-4 bg-white"
+            "relative flex items-center justify-between gap-4 bg-white px-[34px]"
           )}
         >
           <div
@@ -109,10 +111,13 @@ const Header = ({
 
             {/* Hamburger */}
             <button
-              className="bg-thd-color-violet-10 w-12 h-12 rounded-full flex items-center justify-center cursor-pointer 2xl:hidden"
+              className={classNames(
+                "w-12 h-12 rounded-full flex items-center justify-center cursor-pointer 2xl:hidden",
+                isOpen ? "bg-thd-color-violet-60" : "bg-thd-color-violet-10"
+              )}
               onClick={handleMobileMenu}
             >
-              <Hamburger />
+              {isOpen ? <HamburgerX /> : <Hamburger />}
             </button>
           </div>
         </Container>
@@ -122,9 +127,6 @@ const Header = ({
       <div className="absolute top-0 left-0 w-full z-50">
         <MobileMenuModal isOpen={isOpen} handleMobileMenu={handleMobileMenu} />
       </div>
-      {/* <div className="mobile-menu fixed inset-0 bg-white z-30">
-        <MobileMenu />
-      </div> */}
     </>
   )
 }

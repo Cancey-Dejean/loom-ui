@@ -14,7 +14,7 @@ export const primaryMenu = [
 
 export const MOBILE_MENU_LIST = [
   {
-    title: "The Title",
+    title: "Title",
     listItems: [
       {
         label: "Link 1",
@@ -34,7 +34,27 @@ export const MOBILE_MENU_LIST = [
     ],
   },
   {
-    title: "The Title 2",
+    title: "Title 2",
+    listItems: [
+      {
+        label: "Link 1",
+        linkUrl: "/",
+        icon: <MobileMenuTeam />,
+      },
+      {
+        label: "Link 2",
+        linkUrl: "/",
+        icon: <MobileMenuTeam />,
+      },
+      {
+        label: "Link 3",
+        linkUrl: "/",
+        icon: <MobileMenuTeam />,
+      },
+    ],
+  },
+  {
+    title: "Title 3",
     listItems: [
       {
         label: "Link 1",

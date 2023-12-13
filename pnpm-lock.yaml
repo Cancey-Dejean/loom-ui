@@ -20,6 +20,9 @@ dependencies:
   '@whitespace/storybook-addon-html':
     specifier: ^5.1.6
     version: 5.1.6(@storybook/addons@7.6.4)(@storybook/api@7.6.4)(@storybook/components@7.6.4)(@storybook/core-events@7.6.4)(@storybook/theming@7.6.4)(prettier@2.8.8)(react-dom@18.2.0)(react-syntax-highlighter@15.5.0)(react@18.2.0)
+  classnames:
+    specifier: ^2.3.2
+    version: 2.3.2
   next:
     specifier: 14.0.4
     version: 14.0.4(@babel/core@7.23.5)(react-dom@18.2.0)(react@18.2.0)
@@ -6550,6 +6553,10 @@ packages:
       inherits: 2.0.4
       safe-buffer: 5.2.1
     dev: true
+
+  /classnames@2.3.2:
+    resolution: {integrity: sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==}
+    dev: false
 
   /clean-css@5.3.3:
     resolution: {integrity: sha512-D5J+kHaVb/wKSFcyyV75uCn8fiY4sV38XJoe4CUyGQ+mOU/fMVYUdH1hJC+CJQ5uY3EnW27SbJYS4X8BiLrAFg==}

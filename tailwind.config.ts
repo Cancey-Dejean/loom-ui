@@ -15,7 +15,13 @@ const config: Config = {
         "nav-h-sm": "var(--thd-nav-h-sm)",
         "nav-h-lg": "var(--thd-nav-h-lg)",
       },
+      fontSize: {
+        "lm-body-sm": "var(--lm-body-sm)",
+      },
       colors: {
+        "thd-color": {
+          black: "var(--thd-color-grey-100)",
+        },
         "thd-color-violet": {
           0: "var(--thd-color-violet-0)",
           10: "var(--thd-color-violet-10)",
@@ -55,6 +61,8 @@ const config: Config = {
         },
         "lns-color": {
           blurple: "var(--lns-color-blurple)",
+          white: "var(--lns-color-white)",
+          grey8: "var(--lns-color-grey8)",
         },
       },
       screens: {

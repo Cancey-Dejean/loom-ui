@@ -20,6 +20,8 @@
 
 :root {
   --thd-font-body: Circular, Helvetica, sans-serif;
+
+  --lm-body-sm: 0.875rem;
   --thd-transition-base: all 0.3s ease-in-out;
 
   --thd-nav-h-sm: 6rem;
@@ -115,6 +117,8 @@
 
   /* LNS */
   --lns-color-blurple: hsla(242, 88.4%, 66.3%, 1);
+  --lns-color-white: hsla(0, 0%, 100%, 1);
+  --lns-color-grey8: hsla(0, 0%, 13%, 1);
 
   --thd-shadow: 0 0.125rem 0.375rem 0px rgba(0, 0, 0, 0.04),
     0px 0.3125rem 1.125rem 0 rgba(0, 0, 0, 0.06),
@@ -189,8 +193,9 @@ details[open] summary svg {
   transform: rotate(-180deg);
 }
 
-/* Modal */
-
+.lm-body-sm {
+  @apply text-[16px] sm:text-[0.875rem] tracking-[-.01em];
+}
 /* Storybook Styles ONLY: DO NOT DELETE */
 .sbdocs-content {
   @apply mx-auto !max-w-[1920px];

@@ -5,7 +5,7 @@ import { MOBILE_MENU_LIST } from "@/constants"
 
 export const MobileMenu = () => {
   return (
-    <ul>
+    <ul className="mt-[56px]">
       {MOBILE_MENU_LIST.map((item) => (
         <li
           className="border-b border-thd-color-grey-20 last:border-0"
@@ -18,7 +18,7 @@ export const MobileMenu = () => {
                   <Link
                     href={listItem.linkUrl}
                     key={listItem.label}
-                    className="flex items-center gap-2 py-[7px] px-[26px]"
+                    className="lm-body-sm flex items-center gap-3 py-[7px] px-[26px] text-lns-color-grey8"
                   >
                     <span className="h-[18px] w-[18px]">{listItem.icon}</span>
                     {listItem.label}
@@ -37,17 +37,19 @@ const MobileMenuItem = ({
   title,
   children,
   linkable,
+  url,
 }: {
   title: string
   children: React.ReactNode
   linkable?: boolean
+  url?: string
 }) => {
   const menuItemStyles =
-    "px-[30px] text-[23px] py-[18px] flex items-center justify-between"
+    "px-[34px] text-[23px] py-6 flex items-center justify-between text-thd-color-grey-100 focus-visible:text-thd-color-violet-70 focus-visible:bg-thd-color-violet-10"
   return (
     <div className="menu-item-body">
       {linkable ? (
-        <Link href="#" className={menuItemStyles}>
+        <Link href={url || "/"} className={menuItemStyles}>
           <p>{title}</p>
 
           <span className="h-5 w-5">

@@ -3,6 +3,7 @@ import React from "react"
 export const Hamburger = () => {
   return (
     <span className="w-6 h-6 text-lns-color-blurple">
+      <span className="sr-only">Open Mobile Menu</span>
       <svg viewBox="0 0 24 24" fill="none">
         <path
           fillRule="evenodd"
