@@ -65,6 +65,12 @@ const config: Config = {
           grey8: "var(--lns-color-grey8)",
         },
       },
+      dropShadow: {
+        "width-hv": "var(--box-shadow-width-hv) var(--button-color-bx-hv)",
+      },
+      boxShadow: {
+        primary: "var(--box-shadow-width-in) var(--button-color-ol)",
+      },
       screens: {
         "2xl": "1440px",
         // => @media (min-width: 1440px) { ... }

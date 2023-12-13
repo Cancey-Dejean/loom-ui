@@ -10,6 +10,7 @@ import MobileMenuModal from "./MobileMenuModal"
 import { useState } from "react"
 import { HamburgerX } from "../Icons/HamburgerX"
 import classNames from "classnames"
+import { Button } from "../Button/Button"
 
 const Header = ({
   logoCentered,
@@ -103,11 +104,11 @@ const Header = ({
             </nav>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center  gap-4">
             {/* CTA */}
-            <div>
-              <Link href={"/"}>cta</Link>
-            </div>
+            <Button variant="text" className="text-[0.875rem]" />
+            <Button className="text-[0.875rem]" />
+            <Button className="text-[0.875rem]" variant="secondary" />
 
             {/* Hamburger */}
             <button

@@ -4,6 +4,13 @@
 
 @font-face {
   font-family: "Circular";
+  src: url("../public/fonts/Circular-book.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Circular";
   src: url("../public/fonts/Circular-regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
@@ -26,6 +33,16 @@
 
   --thd-nav-h-sm: 6rem;
   --thd-nav-h-lg: 7.625rem;
+
+  --box-shadow-width-hv: 0 0.125em 1.25em;
+  --button-color-bx-hv: #7e75e680;
+  --thd-color-button-ol: rgba(85, 89, 221, 0.4);
+  --box-shadow-width-ac: 0 0.875em 1.875em 0;
+  --border-width: 0.285em;
+  --focus-width: 0.14285em;
+  --focus-multiplier: 2.5;
+  --thd-color-button-ol: rgba(85, 89, 221, 0.4);
+  --button-color-ol: var(--thd-color-button-ol);
 
   --thd-color-grey-10: #f1f0f3;
   --thd-color-grey-20: #d6d3dc;
@@ -138,7 +155,7 @@ html {
 }
 
 body {
-  font-family: var(--thd-font-body);
+  @apply text-base font-[var(--thd-font-body)];
 }
 
 a {
@@ -168,6 +185,21 @@ a {
 
 .skip-link:focus {
   translate: 0;
+}
+
+/* Button */
+.thd-btn-primary {
+  --focus-offset: calc(var(--focus-width) + var(--border-width));
+  box-shadow: var(--box-shadow-width-in) var(--button-color-ol);
+  --box-shadow-width-in: 0 0 0 var(--border-width);
+  color: #fff;
+  background-color: var(--thd-color-violet-60);
+  box-shadow: var(--box-shadow-width-in) var(--button-color-ol);
+}
+
+.thd-btn-secondary {
+  background-color: var(--thd-color-violet-10);
+  color: var(--thd-color-violet-70);
 }
 
 details summary,
