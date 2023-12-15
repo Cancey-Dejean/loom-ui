@@ -159,7 +159,7 @@ body {
 }
 
 a {
-  display: inline-block;
+  @apply inline-block;
 }
 
 .skip-link {

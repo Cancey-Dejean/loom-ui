@@ -25,14 +25,6 @@ export type ButtonProps = {
   /**
    * Description goes here
    */
-  reverseIcon?: boolean
-  /**
-   * Description goes here
-   */
-  shadow?: boolean
-  /**
-   * Description goes here
-   */
   size?: "base" | "small" | "large"
   /**
    * Description goes here
@@ -41,16 +33,12 @@ export type ButtonProps = {
   /**
    * Description goes here
    */
-  ariaLabel?: string
-  /**
-   * Description goes here
-   */
   onClick?: () => void
 } & AnchorHTMLAttributes<HTMLAnchorElement> &
   ButtonHTMLAttributes<HTMLButtonElement>
 
 const button = cva(
-  "h-[3rem] font-light text-[15px] leading-[26px] tracking-[0.0837019px] rounded-[624.9375rem] py-[8px] px-[16px] transition-background duration-[.1s] ease-in-out  hover:[transform:translate3d(0,-.1em,0)_scale(1.01)] hover:drop-shadow-width-hv",
+  "h-[3rem] font-light text-base flex items-center justify-center tracking-[0.0837019px] rounded-[624.9375rem] py-[8px] px-[16px] transition-background duration-[.1s] ease-in-out  hover:[transform:translate3d(0,-.1em,0)_scale(1.01)] hover:drop-shadow-width-hv",
   {
     variants: {
       variant: {
@@ -68,14 +56,6 @@ const button = cva(
         base: ["h-[48px]"],
         large: ["h-[56px]", "py-[8px]"],
       },
-      shadow: {
-        true: ["shadow-btn"],
-        false: null,
-      },
-      reverseIcon: {
-        true: ["flex-row-reverse"],
-        false: null,
-      },
     },
   }
 )
@@ -88,22 +68,16 @@ export const Button = ({
   variant = "primary",
   size = "base",
   label,
-  linkUrl = "",
-  shadow = false,
-  reverseIcon = false,
-  ariaLabel = label,
-  icon = null,
+  linkUrl,
+  icon,
   ...props
 }: ButtonProps) => {
   const iconContent = icon ? <span>{icon}</span> : null
 
-  return linkUrl !== "" ? (
+  return linkUrl ? (
     <Link
       href={linkUrl}
-      className={twMerge(
-        button({ variant, size, shadow, reverseIcon, className })
-      )}
-      aria-label={label || "Button"}
+      className={twMerge(button({ variant, size, className }))}
       {...props}
     >
       {iconContent}
@@ -111,10 +85,7 @@ export const Button = ({
     </Link>
   ) : (
     <button
-      className={twMerge(
-        button({ variant, size, shadow, reverseIcon, className })
-      )}
-      aria-label={label}
+      className={twMerge(button({ variant, size, className }))}
       {...props}
     >
       {iconContent}

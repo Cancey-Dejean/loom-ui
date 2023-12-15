@@ -1,16 +1,16 @@
 "use client"
 import Link from "next/link"
+import { useState } from "react"
 import { twMerge } from "tw-merge"
+import classNames from "classnames"
+import * as DropdownMenu from "@radix-ui/react-dropdown-menu"
 import { Container } from "../Container"
 import { Logo, LoomLogoMain } from "../Logos"
 import { Hamburger } from "../Icons/Hamburger"
 import { primaryMenu } from "../../constants"
 import MobileMenuModal from "./MobileMenuModal"
-import { useState } from "react"
 import { HamburgerX } from "../Icons/HamburgerX"
-import classNames from "classnames"
 import { Button } from "../Button/Button"
-import MenuItemDropdown from "./MenuItemDropdown"
 
 const Header = ({
   logoCentered,
@@ -90,29 +90,55 @@ const Header = ({
             <Logo logo={<LoomLogoMain />} ariaLabel="Loom Logo" />
           </div>
 
-          <div className="flex-1">
-            <nav className={twMerge("w-full items-center text-right")}>
-              <ul className="flex items-center">
-                {primaryMenu?.map((item) => (
-                  <li key={item.label}>
-                    {item.submenu ? (
-                      <MenuItemDropdown />
-                    ) : (
-                      <Link href="#" className="py-2 px-4">
-                        {item.label}
-                      </Link>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          </div>
+          {/* Menu */}
+          <nav className="flex-1 justify-end 2xl:flex hidden">
+            <ul className="flex items-center ">
+              {primaryMenu?.map((item) => (
+                <li key={item.label}>
+                  {/* SubMenu */}
+                  {item.submenu ? (
+                    <DropdownMenu.Root>
+                      <DropdownMenu.Trigger asChild>
+                        <button
+                          className="rounded-[4px] py-2 px-4 flex items-center justify-center gap-2 font-light"
+                          aria-label="Customise options"
+                        >
+                          {item.label} <span className="text-[10px]">▼</span>
+                        </button>
+                      </DropdownMenu.Trigger>
 
-          <div className="flex items-center gap-4">
-            {/* CTA */}
-            <Button variant="text" className="text-[0.875rem]" />
-            <Button className="text-[0.875rem]" />
-            <Button className="text-[0.875rem]" variant="secondary" />
+                      <DropdownMenu.Portal>
+                        <DropdownMenu.Content
+                          className="min-w-[220px] bg-white rounded-[50px]  shadow-[0px_10px_70px_-10px_rgba(22,_23,_24,_0.3),_0px_10px_20px_-15px_rgba(22,_23,_24,_0.1)] will-change-[opacity,transform] data-[side=top]:animate-slideDownAndFade data-[side=right]:animate-slideLeftAndFade data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade max-w-md p-8"
+                          sideOffset={5}
+                        >
+                          <div>Lorem ipsum</div>
+
+                          <DropdownMenu.Arrow className="fill-white w-7 h-4" />
+                        </DropdownMenu.Content>
+                      </DropdownMenu.Portal>
+                    </DropdownMenu.Root>
+                  ) : (
+                    <Link href={item.linkUrl} className="py-2 px-4 font-light">
+                      {item.label}
+                    </Link>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          {/* CTA */}
+          <ul className="flex items-center gap-4">
+            <li>
+              <Button linkUrl="#" variant="text" label="Link" />
+            </li>
+            <li>
+              <Button linkUrl="#" label="Link" />
+            </li>
+            <li>
+              <Button linkUrl="#" variant="secondary" label="Link" />
+            </li>
 
             {/* Hamburger */}
             <button
@@ -124,7 +150,7 @@ const Header = ({
             >
               {isOpen ? <HamburgerX /> : <Hamburger />}
             </button>
-          </div>
+          </ul>
         </Container>
       </header>
 

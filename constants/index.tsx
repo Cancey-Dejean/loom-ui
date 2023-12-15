@@ -1,4 +1,3 @@
-import MenuItemDropdown from "@/components/Header/MenuItemDropdown"
 import { MobileMenuTeam } from "@/components/Icons/MobileMenuTeam"
 
 export const companyName: string = "Loom"
@@ -12,7 +11,19 @@ export const primaryMenu = [
     submenu: true,
   },
   {
-    label: "Link 1",
+    label: "Link 2",
+    linkUrl: "/",
+    className: "",
+    submenu: false,
+  },
+  {
+    label: "Link 3",
+    linkUrl: "/",
+    className: "",
+    submenu: false,
+  },
+  {
+    label: "Link 4",
     linkUrl: "/",
     className: "",
     submenu: false,
