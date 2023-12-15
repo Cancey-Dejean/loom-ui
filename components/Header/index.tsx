@@ -4,13 +4,13 @@ import { twMerge } from "tw-merge"
 import { Container } from "../Container"
 import { Logo, LoomLogoMain } from "../Logos"
 import { Hamburger } from "../Icons/Hamburger"
-import { primaryMenu } from "@/constants"
-import { MobileMenu } from "./MobileMenu"
+import { primaryMenu } from "../../constants"
 import MobileMenuModal from "./MobileMenuModal"
 import { useState } from "react"
 import { HamburgerX } from "../Icons/HamburgerX"
 import classNames from "classnames"
 import { Button } from "../Button/Button"
+import MenuItemDropdown from "./MenuItemDropdown"
 
 const Header = ({
   logoCentered,
@@ -60,7 +60,7 @@ const Header = ({
   //   }
   // }, []) // Empty dependency array means this effect runs once on mount and clean up on unmount
 
-  let [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
 
   function handleMobileMenu() {
     setIsOpen(!isOpen)
@@ -95,16 +95,20 @@ const Header = ({
               <ul className="flex items-center">
                 {primaryMenu?.map((item) => (
                   <li key={item.label}>
-                    <Link href="#" className="py-2 px-4">
-                      {item.label}
-                    </Link>
+                    {item.submenu ? (
+                      <MenuItemDropdown />
+                    ) : (
+                      <Link href="#" className="py-2 px-4">
+                        {item.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>
             </nav>
           </div>
 
-          <div className="flex items-center  gap-4">
+          <div className="flex items-center gap-4">
             {/* CTA */}
             <Button variant="text" className="text-[0.875rem]" />
             <Button className="text-[0.875rem]" />

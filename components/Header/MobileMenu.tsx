@@ -1,7 +1,7 @@
 import Link from "next/link"
 import React from "react"
 import { MobileDropDown } from "../Icons/MobileDropDown"
-import { MOBILE_MENU_LIST } from "@/constants"
+import { MOBILE_MENU_LIST } from "../../constants"
 
 export const MobileMenu = () => {
   return (
