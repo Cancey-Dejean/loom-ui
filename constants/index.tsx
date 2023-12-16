@@ -48,6 +48,20 @@ export const primaryMenu = [
     listItems: null,
     submenu: false,
   },
+  {
+    label: "Link 5",
+    url: "/",
+    linkable: true,
+    listItems: null,
+    submenu: false,
+  },
+  {
+    label: "Link 6",
+    url: "/",
+    linkable: true,
+    listItems: null,
+    submenu: false,
+  },
 ]
 
 export const navSecondary = [

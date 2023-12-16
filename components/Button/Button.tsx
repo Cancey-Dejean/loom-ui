@@ -1,5 +1,4 @@
 import Link from "next/link"
-import classNames from "classnames"
 
 import { cva } from "class-variance-authority"
 import { AnchorHTMLAttributes, ButtonHTMLAttributes } from "react"
@@ -9,7 +8,7 @@ export type ButtonProps = {
   /**
    * Description goes here
    */
-  variant?: "primary" | "secondary" | "text"
+  variant?: "primary" | "secondary" | "text" | undefined
   /**
    * Description goes here
    */

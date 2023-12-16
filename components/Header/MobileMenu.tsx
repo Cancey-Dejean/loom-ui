@@ -1,29 +1,41 @@
 import Link from "next/link"
 import React from "react"
 import { MobileDropDown } from "../Icons/MobileDropDown"
-import { primaryMenu } from "../../constants"
+import { navSecondary, primaryMenu } from "../../constants"
 import DropdownItem from "./DropdownItem"
+import { Button } from "../Button/Button"
 
 export const MobileMenu = () => {
   return (
-    <ul className="mt-5 sm:mt-14-">
-      {primaryMenu.map((item) => (
-        <li
-          className="border-b border-thd-color-grey-20 last:border-0"
-          key={item.label}
-        >
-          <MobileMenuItem title={item.label} linkable={item.linkable}>
-            {item.listItems?.map((subItem) => (
-              <DropdownItem
-                url={subItem.url}
-                label={subItem.label}
-                icon={subItem.icon}
-              />
-            ))}
-          </MobileMenuItem>
-        </li>
-      ))}
-    </ul>
+    <>
+      <ul className="mt-5 sm:mt-14-">
+        {primaryMenu.map((item) => (
+          <li
+            className="border-b border-thd-color-grey-20 last:border-0"
+            key={item.label}
+          >
+            <MobileMenuItem title={item.label} linkable={item.linkable}>
+              {item.listItems?.map((subItem) => (
+                <DropdownItem
+                  url={subItem.url}
+                  label={subItem.label}
+                  icon={subItem.icon}
+                />
+              ))}
+            </MobileMenuItem>
+          </li>
+        ))}
+      </ul>
+      <div className="flex flex-row-reverse items-center justify-center gap-4 my-4">
+        {navSecondary.slice(1, 3).map((link) => (
+          <Button
+            url={link.url}
+            variant={link.variant as any}
+            label={link.label}
+          />
+        ))}
+      </div>
+    </>
   )
 }
 

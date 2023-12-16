@@ -106,7 +106,7 @@ const Header = ({
           {/* Menu */}
           <nav className="flex-1 justify-end 2xl:flex hidden">
             <ul className="flex items-center ">
-              {primaryMenu?.map((item) => (
+              {primaryMenu.slice(0, 4).map((item) => (
                 <li key={item.label}>
                   {/* SubMenu */}
                   {item.submenu ? (
@@ -158,7 +158,7 @@ const Header = ({
                 <li>
                   <Button
                     url={link.url}
-                    variant={link.variant}
+                    variant={link.variant as any}
                     label={link.label}
                   />
                 </li>
