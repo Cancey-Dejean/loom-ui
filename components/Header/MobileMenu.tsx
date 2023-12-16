@@ -1,31 +1,25 @@
 import Link from "next/link"
 import React from "react"
 import { MobileDropDown } from "../Icons/MobileDropDown"
-import { MOBILE_MENU_LIST } from "../../constants"
+import { primaryMenu } from "../../constants"
+import DropdownItem from "./DropdownItem"
 
 export const MobileMenu = () => {
   return (
     <ul className="mt-[56px]">
-      {MOBILE_MENU_LIST.map((item) => (
+      {primaryMenu.map((item) => (
         <li
           className="border-b border-thd-color-grey-20 last:border-0"
-          key={item.title}
+          key={item.label}
         >
-          <MobileMenuItem title={item.title}>
-            <ul>
-              {item.listItems.map((listItem) => (
-                <li>
-                  <Link
-                    href={listItem.linkUrl}
-                    key={listItem.label}
-                    className="lm-body-sm flex items-center gap-3 py-[7px] px-[26px] text-lns-color-grey8"
-                  >
-                    <span className="h-[18px] w-[18px]">{listItem.icon}</span>
-                    {listItem.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          <MobileMenuItem title={item.label} linkable={item.linkable}>
+            {item.listItems?.map((subItem) => (
+              <DropdownItem
+                url={subItem.url}
+                label={subItem.label}
+                icon={subItem.icon}
+              />
+            ))}
           </MobileMenuItem>
         </li>
       ))}
@@ -33,7 +27,7 @@ export const MobileMenu = () => {
   )
 }
 
-const MobileMenuItem = ({
+export const MobileMenuItem = ({
   title,
   children,
   linkable,

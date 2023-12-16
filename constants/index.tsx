@@ -5,27 +5,47 @@ export const companyName: string = "Loom"
 
 export const primaryMenu = [
   {
-    label: "Link 1",
-    linkUrl: "/",
-    className: "",
+    label: "Dropdown",
+    url: "#",
+    linkable: false,
+    listItems: [
+      {
+        label: "Link 1",
+        url: "/",
+        icon: <MobileMenuTeam />,
+      },
+      {
+        label: "Link 2",
+        url: "/",
+        icon: <MobileMenuTeam />,
+      },
+      {
+        label: "Link 3",
+        url: "/",
+        icon: <MobileMenuTeam />,
+      },
+    ],
     submenu: true,
   },
   {
     label: "Link 2",
-    linkUrl: "/",
-    className: "",
+    url: "/",
+    linkable: true,
+    listItems: null,
     submenu: false,
   },
   {
     label: "Link 3",
-    linkUrl: "/",
-    className: "",
+    url: "/",
+    linkable: true,
+    listItems: null,
     submenu: false,
   },
   {
     label: "Link 4",
-    linkUrl: "/",
-    className: "",
+    url: "/",
+    linkable: true,
+    listItems: null,
     submenu: false,
   },
 ]

@@ -11,6 +11,8 @@ import { primaryMenu } from "../../constants"
 import MobileMenuModal from "./MobileMenuModal"
 import { HamburgerX } from "../Icons/HamburgerX"
 import { Button } from "../Button/Button"
+import DropdownItem from "./DropdownItem"
+import { MobileMenuTeam } from "../Icons/MobileMenuTeam"
 
 const Header = ({
   logoCentered,
@@ -101,7 +103,7 @@ const Header = ({
                       <DropdownMenu.Trigger asChild>
                         <button
                           className="rounded-[4px] py-2 px-4 flex items-center justify-center gap-2 font-light"
-                          aria-label="Customise options"
+                          aria-label={item.label}
                         >
                           {item.label} <span className="text-[10px]">▼</span>
                         </button>
@@ -112,14 +114,24 @@ const Header = ({
                           className="min-w-[220px] bg-white rounded-[50px]  shadow-[0px_10px_70px_-10px_rgba(22,_23,_24,_0.3),_0px_10px_20px_-15px_rgba(22,_23,_24,_0.1)] will-change-[opacity,transform] data-[side=top]:animate-slideDownAndFade data-[side=right]:animate-slideLeftAndFade data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade max-w-md p-8"
                           sideOffset={5}
                         >
-                          <div>Lorem ipsum</div>
+                          <ul>
+                            {item.listItems?.map((subItem) => (
+                              <li key={subItem.label}>
+                                <DropdownItem
+                                  url={subItem.url}
+                                  label={subItem.label}
+                                  icon={subItem.icon}
+                                />
+                              </li>
+                            ))}
+                          </ul>
 
                           <DropdownMenu.Arrow className="fill-white w-7 h-4" />
                         </DropdownMenu.Content>
                       </DropdownMenu.Portal>
                     </DropdownMenu.Root>
                   ) : (
-                    <Link href={item.linkUrl} className="py-2 px-4 font-light">
+                    <Link href={item.url} className="py-2 px-4 font-light">
                       {item.label}
                     </Link>
                   )}
