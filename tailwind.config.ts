@@ -71,6 +71,9 @@ const config: Config = {
       boxShadow: {
         primary: "var(--box-shadow-width-in) var(--button-color-ol)",
       },
+      backgroundImage: {
+        "gradient-nav": "linear-gradient(var(--thd-gradient-nav))",
+      },
       keyframes: {
         slideDownAndFade: {
           from: { opacity: 0, transform: "translateY(-2px)" },

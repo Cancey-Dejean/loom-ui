@@ -34,8 +34,8 @@ export default function MyModal({ isOpen, handleMobileMenu }: MyModalProps) {
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
             >
-              <Dialog.Panel className="w-full h-full transform overflow-hidden bg-white text-left align-middle shadow-xl transition-all flex flex-col justify-center">
-                <div className="h-full overflow-x-scroll pt-[var(--thd-nav-h-sm)]">
+              <Dialog.Panel className="w-full h-full transform overflow-hidden bg-white text-left align-middle shadow-xl transition-all flex flex-col justify-center relative z-40">
+                <div className="h-full overflow-y-scroll mt-[var(--thd-nav-h-sm)]">
                   {/* Mobile Menu */}
                   <MobileMenu />
                 </div>

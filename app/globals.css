@@ -155,7 +155,7 @@ html {
 }
 
 body {
-  @apply text-base font-[var(--thd-font-body)];
+  @apply text-base font-[var(--thd-font-body)] h-screen flex flex-col;
 }
 
 a {
@@ -205,6 +205,10 @@ a {
 .thd-btn-secondary {
   background-color: var(--thd-color-violet-10);
   color: var(--thd-color-violet-70);
+}
+
+.thd-shadow-nav {
+  box-shadow: 0px 6px 65px rgba(0, 0, 0, 0.05);
 }
 
 details summary,

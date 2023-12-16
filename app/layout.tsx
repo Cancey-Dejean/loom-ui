@@ -1,5 +1,4 @@
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
 import "./globals.css"
 import Header from "@/components/Header"
 import SkipToContent from "@/components/SkipToContent"
@@ -19,7 +18,13 @@ export default function RootLayout({
       <body>
         <SkipToContent />
         <Header />
-        <main id="main-content">{children}</main>
+        <main
+          id="main-content"
+          className="flex-1 mt-[var(--thd-nav-h-sm)] sm:mt-[var(--thd-nav-h-lg)]"
+        >
+          {children}
+        </main>
+        <footer>FOoter</footer>
       </body>
     </html>
   )

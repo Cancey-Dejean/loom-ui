@@ -6,7 +6,7 @@ import DropdownItem from "./DropdownItem"
 
 export const MobileMenu = () => {
   return (
-    <ul className="mt-[56px]">
+    <ul className="mt-5 sm:mt-14-">
       {primaryMenu.map((item) => (
         <li
           className="border-b border-thd-color-grey-20 last:border-0"

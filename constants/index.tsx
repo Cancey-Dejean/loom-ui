@@ -50,98 +50,20 @@ export const primaryMenu = [
   },
 ]
 
-export const MOBILE_MENU_LIST = [
-  {
-    title: "Title",
-    listItems: [
-      {
-        label: "Link 1",
-        linkUrl: "/",
-        icon: <MobileMenuTeam />,
-      },
-      {
-        label: "Link 2",
-        linkUrl: "/",
-        icon: <MobileMenuTeam />,
-      },
-      {
-        label: "Link 3",
-        linkUrl: "/",
-        icon: <MobileMenuTeam />,
-      },
-    ],
-  },
-  {
-    title: "Title 2",
-    listItems: [
-      {
-        label: "Link 1",
-        linkUrl: "/",
-        icon: <MobileMenuTeam />,
-      },
-      {
-        label: "Link 2",
-        linkUrl: "/",
-        icon: <MobileMenuTeam />,
-      },
-      {
-        label: "Link 3",
-        linkUrl: "/",
-        icon: <MobileMenuTeam />,
-      },
-    ],
-  },
-  {
-    title: "Title 3",
-    listItems: [
-      {
-        label: "Link 1",
-        linkUrl: "/",
-        icon: <MobileMenuTeam />,
-      },
-      {
-        label: "Link 2",
-        linkUrl: "/",
-        icon: <MobileMenuTeam />,
-      },
-      {
-        label: "Link 3",
-        linkUrl: "/",
-        icon: <MobileMenuTeam />,
-      },
-    ],
-  },
-]
-
 export const navSecondary = [
   {
-    label: "How it works",
-    linkUrl: "/",
-    icon: "",
-    reverseIcon: false,
-    intent: "navText",
-    className: "",
-    size: "small",
-    shadow: false,
+    label: "Link",
+    url: "/",
+    variant: "text",
   },
   {
-    label: "Sign in",
-    linkUrl: "/",
-    icon: "",
-    reverseIcon: false,
-    intent: "navText",
-    className: "",
-    size: "small",
-    shadow: false,
+    label: "Link",
+    url: "/",
+    variant: "primary",
   },
   {
-    label: "Start a GoFundMe",
-    linkUrl: "/",
-    icon: "",
-    reverseIcon: false,
-    intent: "primary",
-    className: "px-4",
-    size: "small",
-    shadow: false,
+    label: "Link",
+    url: "/",
+    variant: "secondary",
   },
 ]
