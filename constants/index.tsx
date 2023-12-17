@@ -11,17 +11,17 @@ export const primaryMenu = [
     listItems: [
       {
         label: "Link 1",
-        url: "/",
+        url: "/hello",
         icon: <MobileMenuTeam />,
       },
       {
         label: "Link 2",
-        url: "/",
+        url: "/link2",
         icon: <MobileMenuTeam />,
       },
       {
         label: "Link 3",
-        url: "/",
+        url: "/link3",
         icon: <MobileMenuTeam />,
       },
     ],

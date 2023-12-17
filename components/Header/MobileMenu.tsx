@@ -8,7 +8,7 @@ import { Button } from "../Button/Button"
 export const MobileMenu = () => {
   return (
     <>
-      <ul className="mt-5 sm:mt-14-">
+      <ul className="sm:mt-14">
         {primaryMenu.map((item) => (
           <li
             className="border-b border-thd-color-grey-20 last:border-0"
@@ -20,6 +20,7 @@ export const MobileMenu = () => {
                   url={subItem.url}
                   label={subItem.label}
                   icon={subItem.icon}
+                  className="px-[28px]"
                 />
               ))}
             </MobileMenuItem>
@@ -51,7 +52,7 @@ export const MobileMenuItem = ({
   url?: string
 }) => {
   const menuItemStyles =
-    "px-[34px] text-[23px] py-6 flex items-center justify-between text-thd-color-grey-100 focus-visible:text-thd-color-violet-70 focus-visible:bg-thd-color-violet-10"
+    "px-[32px] sm:px-[34px] text-[23px] py-6 flex items-center justify-between text-thd-color-grey-100 focus-visible:text-thd-color-violet-70 focus-visible:bg-thd-color-violet-10"
   return (
     <div className="menu-item-body">
       {linkable ? (

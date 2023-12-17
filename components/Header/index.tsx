@@ -12,6 +12,10 @@ import MobileMenuModal from "./MobileMenuModal"
 import { HamburgerX } from "../Icons/HamburgerX"
 import { Button } from "../Button/Button"
 import DropdownItem from "./DropdownItem"
+import NavMenu from "./NavMenu"
+import { Fragment } from "react"
+import { Menu, Transition } from "@headlessui/react"
+import { ChevronDownIcon } from "@heroicons/react/20/solid"
 
 const Header = ({
   logoCentered,
@@ -83,7 +87,7 @@ const Header = ({
       <header
         className={classNames(
           "fixed left-0 top-0 z-[20] h-nav-h-sm sm:h-nav-h-lg flex items-center w-full py-10px bg-white transition-all duration-[.3s] ease-in-out ",
-          isOpen ? "overflow-y-scroll !shadow-none" : null,
+          isOpen ? "!shadow-none" : null,
           scrolled ? "thd-shadow-nav" : null
         )}
       >
@@ -104,43 +108,69 @@ const Header = ({
           </div>
 
           {/* Menu */}
+
           <nav className="flex-1 justify-end 2xl:flex hidden">
             <ul className="flex items-center ">
               {primaryMenu.slice(0, 4).map((item) => (
                 <li key={item.label}>
-                  {/* SubMenu */}
                   {item.submenu ? (
-                    <DropdownMenu.Root>
-                      <DropdownMenu.Trigger asChild>
-                        <button
-                          className="rounded-[4px] py-2 px-4 flex items-center justify-center gap-2 font-light"
-                          aria-label={item.label}
-                        >
-                          {item.label} <span className="text-[10px]">▼</span>
-                        </button>
-                      </DropdownMenu.Trigger>
+                    <>
+                      <Menu
+                        as="div"
+                        className="relative inline-block text-left"
+                      >
+                        <div>
+                          <Menu.Button className="flex items-center justify-center gap-[6px] text-gray-900 ring-gray-300 py-2 px-4 font-light dropdown-btn">
+                            {item.label}
+                            <span className="text-[10px] dropdown-btn-icon">
+                              ▼
+                            </span>
+                          </Menu.Button>
+                        </div>
 
-                      <DropdownMenu.Portal>
-                        <DropdownMenu.Content
-                          className="min-w-[220px] bg-white rounded-[50px]  shadow-[0px_10px_70px_-10px_rgba(22,_23,_24,_0.3),_0px_10px_20px_-15px_rgba(22,_23,_24,_0.1)] will-change-[opacity,transform] data-[side=top]:animate-slideDownAndFade data-[side=right]:animate-slideLeftAndFade data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade max-w-md px-8 py-4"
-                          sideOffset={5}
+                        <Transition
+                          as={Fragment}
+                          enter="transition ease-out duration-100"
+                          enterFrom="transform opacity-0 scale-95"
+                          enterTo="transform opacity-100 scale-100"
+                          leave="transition ease-in duration-75"
+                          leaveFrom="transform opacity-100 scale-100"
+                          leaveTo="transform opacity-0 scale-95"
                         >
-                          <ul>
-                            {item.listItems?.map((subItem) => (
-                              <li key={subItem.label}>
-                                <DropdownItem
-                                  url={subItem.url}
-                                  label={subItem.label}
-                                  icon={subItem.icon}
-                                />
-                              </li>
-                            ))}
-                          </ul>
+                          <Menu.Items className="absolute left-1/2 z-10 -translate-x-1/2 mt-2  min-w-[250px] origin-top-right bg-white  ring-opacity-5 focus:outline-none rounded-[40px] shadow-dropdown">
+                            {/* Dropdown menu Arrow */}
+                            <span className="absolute top-0 -translate-x-1/2origin-center rotate-180 left-1/2 -translate-y-[100%]">
+                              <svg
+                                className="block fill-white"
+                                width="25"
+                                height="14"
+                                viewBox="0 0 30 10"
+                                preserveAspectRatio="none"
+                              >
+                                <polygon points="0,0 30,0 15,10"></polygon>
+                              </svg>
+                            </span>
 
-                          <DropdownMenu.Arrow className="fill-white w-7 h-4" />
-                        </DropdownMenu.Content>
-                      </DropdownMenu.Portal>
-                    </DropdownMenu.Root>
+                            <ul className="py-[22px] px-[22px]">
+                              {item.listItems?.map((subItem) => (
+                                <li key={subItem.label}>
+                                  <Menu.Item>
+                                    {({ active }) => (
+                                      <DropdownItem
+                                        label={subItem.label}
+                                        url={subItem.url}
+                                        icon={subItem.icon}
+                                        active={active}
+                                      />
+                                    )}
+                                  </Menu.Item>
+                                </li>
+                              ))}
+                            </ul>
+                          </Menu.Items>
+                        </Transition>
+                      </Menu>
+                    </>
                   ) : (
                     <Link href={item.url} className="py-2 px-4 font-light">
                       {item.label}
