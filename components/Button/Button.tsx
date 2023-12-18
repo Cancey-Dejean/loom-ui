@@ -24,7 +24,7 @@ export type ButtonProps = {
   /**
    * Description goes here
    */
-  size?: "base" | "small" | "large"
+  size?: "base" | "large"
   /**
    * Description goes here
    */
@@ -37,7 +37,7 @@ export type ButtonProps = {
   ButtonHTMLAttributes<HTMLButtonElement>
 
 const button = cva(
-  "h-[3rem] font-light text-base flex items-center justify-center tracking-[0.0837019px] rounded-[624.9375rem] py-[8px] px-[16px] transition-background duration-[.1s] ease-in-out  hover:[transform:translate3d(0,-.1em,0)_scale(1.01)] hover:drop-shadow-width-hv min-w-[131px]",
+  "font-light text-base flex items-center justify-center tracking-[0.0837019px] rounded-[624.9375rem] py-[8px] px-[16px] transition-background duration-[.1s] ease-in-out  hover:[transform:translate3d(0,-.1em,0)_scale(1.01)] hover:drop-shadow-width-hv min-w-[131px]",
   {
     variants: {
       variant: {
@@ -51,9 +51,8 @@ const button = cva(
         medium: ["font-medium"],
       },
       size: {
-        small: ["h-[34px]", "!py-1"],
-        base: ["h-[48px]"],
-        large: ["h-[56px]", "py-[8px]"],
+        base: ["h-[3rem]"],
+        large: ["px-[100px] py-[25px] text-[22px] h-auto"],
       },
     },
   }

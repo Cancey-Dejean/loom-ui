@@ -29,6 +29,9 @@
   --thd-font-body: Circular, Helvetica, sans-serif;
 
   --lm-body-sm: 0.875rem;
+  --thd-body-lg: 25px;
+  --thd-heading-lg: 55px;
+
   --thd-transition-base: all 0.3s ease-in-out;
 
   --thd-nav-h-sm: 6rem;
@@ -188,6 +191,10 @@ a {
 
 .skip-link:focus {
   translate: 0;
+}
+
+.thd-max-3xl {
+  max-width: 50ch;
 }
 
 /* Mobile Menu */

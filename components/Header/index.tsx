@@ -184,8 +184,8 @@ const Header = ({
           <div className="flex items-center gap-4">
             {/* CTA */}
             <ul className=" items-center gap-4 hidden sm:flex">
-              {navSecondary?.map((link) => (
-                <li>
+              {navSecondary?.map((link, index) => (
+                <li key={index}>
                   <Button
                     url={link.url}
                     variant={link.variant as any}
