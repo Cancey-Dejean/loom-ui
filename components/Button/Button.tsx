@@ -1,5 +1,4 @@
 import Link from "next/link"
-
 import { cva } from "class-variance-authority"
 import { AnchorHTMLAttributes, ButtonHTMLAttributes } from "react"
 import { twMerge } from "tw-merge"
@@ -13,6 +12,10 @@ export type ButtonProps = {
    * Description goes here
    */
   className?: string
+  /**
+   * Description goes here
+   */
+  fontWeight?: "light" | "normal" | "bold" | undefined
   /**
    * Description goes here
    */
@@ -52,7 +55,7 @@ const button = cva(
       },
       size: {
         base: ["h-[3rem]"],
-        large: ["px-[100px] py-[25px] text-[22px] h-auto"],
+        large: ["px-[100px] py-[25px] text-[25px] h-auto"],
       },
     },
   }
@@ -65,6 +68,7 @@ export const Button = ({
   className = "",
   variant = "primary",
   size = "base",
+  fontWeight,
   label,
   url,
   icon,
@@ -75,7 +79,7 @@ export const Button = ({
   return url ? (
     <Link
       href={url}
-      className={twMerge(button({ variant, size, className }))}
+      className={twMerge(button({ variant, size, fontWeight, className }))}
       {...props}
     >
       {iconContent}
@@ -83,7 +87,7 @@ export const Button = ({
     </Link>
   ) : (
     <button
-      className={twMerge(button({ variant, size, className }))}
+      className={twMerge(button({ variant, size, fontWeight, className }))}
       {...props}
     >
       {iconContent}

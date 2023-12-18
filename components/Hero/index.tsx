@@ -9,7 +9,7 @@ const Hero = () => {
       <Container>
         <div className="flex flex-col ">
           <div className="flex justify-center">
-            <h1 className="text-thd-heading-lg font-medium text-thd-color-violet-90 max-w-[30ch] mb-4 leading-[1]">
+            <h1 className="text-thd-heading-lg font-medium text-thd-color-violet-90 max-w-[30ch] mb-4 leading-[1.143]">
               Section Title
             </h1>
           </div>
@@ -26,7 +26,11 @@ const Hero = () => {
       </Container>
 
       <div className="px-[32px] mt-[52px] flex justify-center">
-        <ModalVideo />
+        <ModalVideo
+          videoSrc="/videos/video.mp4"
+          thumb="https://dummyimage.com/2020x1136.png/dddddd/ffffff"
+          thumbAlt="Modal video thumbnail"
+        />
       </div>
     </section>
   )

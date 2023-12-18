@@ -18,6 +18,7 @@ const config: Config = {
       fontSize: {
         "lm-body-sm": "var(--lm-body-sm)",
         "thd-body-lg": "var(--thd-body-lg)",
+        "thd-heading-md": "var(--thd-heading-md)",
         "thd-heading-lg": "var(--thd-heading-lg)",
       },
       colors: {
