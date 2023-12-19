@@ -1,0 +1,24 @@
+/* Button */
+.btn {
+  @apply gap-2 text-base flex items-center justify-center tracking-[0.0837019px] rounded-[var(--radius-full)] py-[8px] px-[16px] transition-all duration-[.1s] ease-in-out hover:[transform:translate3d(0,-.1em,0)_scale(1.01)] hover:drop-shadow-width-hv min-w-[131px] h-auto;
+
+  &.btn-primary {
+    @apply bg-[var(--button-color-bg)] text-white shadow-[0_0_0_0.285em_var(--button-color-border)];
+
+    &:hover {
+      filter: drop-shadow(var(--box-shadow-width-hv) var(--button-color-bx-hv));
+    }
+  }
+
+  &.btn-secondary {
+    @apply bg-[var(--button-color-fg)] text-[var(--color-violet-70)];
+  }
+
+  &.text {
+    @apply min-w-[auto] bg-transparent text-[inherit] hover:transform-none;
+  }
+
+  &.large {
+    @apply h-auto py-[21px] px-[42px] text-[21px] sm:text-[25px] sm:px-[100px] sm:py-[25px];
+  }
+}

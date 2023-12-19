@@ -2,8 +2,31 @@ import Link from "next/link"
 import { cva } from "class-variance-authority"
 import { AnchorHTMLAttributes, ButtonHTMLAttributes } from "react"
 import { twMerge } from "tw-merge"
+import "./Button.css"
 
-export type ButtonProps = {
+const button = cva("btn", {
+  variants: {
+    variant: {
+      primary: ["btn-primary"],
+      secondary: ["btn-secondary"],
+      text: ["btn-text"],
+    },
+    size: {
+      medium: ["h-[3rem]"],
+      large: ["large"],
+    },
+  },
+})
+
+export const Button = ({
+  className = "",
+  variant = "primary",
+  size = "medium",
+  label,
+  url,
+  icon,
+  ...props
+}: {
   /**
    * Description goes here
    */
@@ -12,10 +35,6 @@ export type ButtonProps = {
    * Description goes here
    */
   className?: string
-  /**
-   * Description goes here
-   */
-  fontWeight?: "light" | "normal" | "medium"
   /**
    * Description goes here
    */
@@ -37,58 +56,25 @@ export type ButtonProps = {
    */
   onClick?: () => void
 } & AnchorHTMLAttributes<HTMLAnchorElement> &
-  ButtonHTMLAttributes<HTMLButtonElement>
-
-const button = cva("btn", {
-  variants: {
-    variant: {
-      primary: ["btn-primary"],
-      secondary: ["btn-secondary"],
-      text: ["min-w-[auto] bg-transparent text-[inherit] ![transform:none]"],
-    },
-    fontWeight: {
-      light: ["!font-light"],
-      normal: ["!font-normal"],
-      medium: ["!font-medium"],
-    },
-    size: {
-      medium: ["h-[3rem]"],
-      large: ["!px-[100px] !py-[25px] text-[21px] sm:!text-[25px] !h-auto"],
-    },
-  },
-})
-
-/**
- * Primary UI component for user interaction
- */
-export const Button = ({
-  className = "",
-  variant = "primary",
-  size = "medium",
-  fontWeight = "normal",
-  label,
-  url,
-  icon,
-  ...props
-}: ButtonProps) => {
+  ButtonHTMLAttributes<HTMLButtonElement>) => {
   const iconContent = icon ? <span>{icon}</span> : null
 
   return url ? (
     <Link
       href={url}
-      className={twMerge(button({ variant, size, fontWeight, className }))}
+      className={twMerge(button({ variant, size, className }))}
       {...props}
     >
-      {iconContent}
       {label || "Link"}
+      {iconContent}
     </Link>
   ) : (
     <button
-      className={twMerge(button({ variant, size, fontWeight, className }))}
+      className={twMerge(button({ variant, size, className }))}
       {...props}
     >
-      {iconContent}
       {label || "Button"}
+      {iconContent}
     </button>
   )
 }

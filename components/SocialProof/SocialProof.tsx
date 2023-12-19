@@ -3,7 +3,7 @@ import { Container } from "../Container"
 
 type Props = {}
 
-const SocialProof = (props: Props) => {
+const SocialProof = ({}: Props) => {
   return (
     <section className="bg-white py-[102px] text-center">
       <Container>
