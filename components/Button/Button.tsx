@@ -2,7 +2,6 @@ import Link from "next/link"
 import { cva } from "class-variance-authority"
 import { AnchorHTMLAttributes, ButtonHTMLAttributes } from "react"
 import { twMerge } from "tw-merge"
-import { BUTTON_VARIANTS } from "./buttonStorybookData"
 
 export type ButtonProps = {
   /**
