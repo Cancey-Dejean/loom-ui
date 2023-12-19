@@ -21,13 +21,6 @@ export const MobileModal = () => {
           <div className="my-[var(--thd-nav-h-sm)] h-full">Hello</div>
 
           <Dialog.Close asChild>
-            {/* <button
-              className="text-violet11 hover:bg-violet4 focus:shadow-violet7 absolute top-[10px] right-[10px] inline-flex h-[25px] w-[25px] appearance-none items-center justify-center rounded-full focus:shadow-[0_0_0_2px] focus:outline-none"
-              aria-label="Close"
-            >
-              close
-            </button> */}
-
             <button
               className="bg-red-600 w-12 h-12 rounded-full flex items-center justify-center 2xl:hidden focus:shadow-violet7  focus:shadow-[0_0_0_2px] focus:outline-none absolute   z-[21]
                top-0 left-0 text-lns-color-blurple"

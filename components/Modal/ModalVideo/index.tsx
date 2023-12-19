@@ -3,7 +3,7 @@ import type { StaticImageData } from "next/image"
 import { useState, useRef, Fragment } from "react"
 import { Dialog, Transition } from "@headlessui/react"
 import Image from "next/image"
-import PlayIcon from "@/components/Icons/PlayIcon"
+import PlayIcon from "../../../components/Icons/PlayIcon"
 // import { PlayIcon } from "../../atoms/Icons";
 
 export type ModalVideoProps = {

@@ -2,12 +2,13 @@ import Link from "next/link"
 import { cva } from "class-variance-authority"
 import { AnchorHTMLAttributes, ButtonHTMLAttributes } from "react"
 import { twMerge } from "tw-merge"
+import { BUTTON_VARIANTS } from "./buttonStorybookData"
 
 export type ButtonProps = {
   /**
    * Description goes here
    */
-  variant?: "primary" | "secondary" | "text" | undefined
+  variant?: "primary" | "secondary" | "text"
   /**
    * Description goes here
    */
@@ -15,7 +16,7 @@ export type ButtonProps = {
   /**
    * Description goes here
    */
-  fontWeight?: "light" | "normal" | "bold" | undefined
+  fontWeight?: "light" | "normal" | "medium"
   /**
    * Description goes here
    */
@@ -27,7 +28,7 @@ export type ButtonProps = {
   /**
    * Description goes here
    */
-  size?: "base" | "large"
+  size?: "medium" | "large"
   /**
    * Description goes here
    */
@@ -39,27 +40,24 @@ export type ButtonProps = {
 } & AnchorHTMLAttributes<HTMLAnchorElement> &
   ButtonHTMLAttributes<HTMLButtonElement>
 
-const button = cva(
-  "font-light text-base flex items-center justify-center tracking-[0.0837019px] rounded-[624.9375rem] py-[8px] px-[16px] transition-background duration-[.1s] ease-in-out  hover:[transform:translate3d(0,-.1em,0)_scale(1.01)] hover:drop-shadow-width-hv min-w-[131px]",
-  {
-    variants: {
-      variant: {
-        primary: ["thd-btn-primary"],
-        secondary: ["thd-btn-secondary"],
-        text: ["min-w-[auto] bg-transparent text-[inherit] ![transform:none]"],
-      },
-      fontWeight: {
-        light: ["font-light"],
-        normal: ["font-normal"],
-        medium: ["font-medium"],
-      },
-      size: {
-        base: ["h-[3rem]"],
-        large: ["px-[100px] py-[25px] text-[25px] h-auto"],
-      },
+const button = cva("btn", {
+  variants: {
+    variant: {
+      primary: ["btn-primary"],
+      secondary: ["btn-secondary"],
+      text: ["min-w-[auto] bg-transparent text-[inherit] ![transform:none]"],
     },
-  }
-)
+    fontWeight: {
+      light: ["!font-light"],
+      normal: ["!font-normal"],
+      medium: ["!font-medium"],
+    },
+    size: {
+      medium: ["h-[3rem]"],
+      large: ["!px-[100px] !py-[25px] text-[21px] sm:!text-[25px] !h-auto"],
+    },
+  },
+})
 
 /**
  * Primary UI component for user interaction
@@ -67,8 +65,8 @@ const button = cva(
 export const Button = ({
   className = "",
   variant = "primary",
-  size = "base",
-  fontWeight,
+  size = "medium",
+  fontWeight = "normal",
   label,
   url,
   icon,
@@ -83,7 +81,7 @@ export const Button = ({
       {...props}
     >
       {iconContent}
-      {label || "Button"}
+      {label || "Link"}
     </Link>
   ) : (
     <button

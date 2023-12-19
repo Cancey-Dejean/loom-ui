@@ -14,7 +14,9 @@ const SocialProof = (props: Props) => {
         </div>
 
         <div>Marguess</div>
+
         <div>Marguess</div>
+
         <div>Marguess</div>
       </Container>
     </section>

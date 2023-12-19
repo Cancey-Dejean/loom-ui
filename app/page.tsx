@@ -4,8 +4,7 @@ import SocialProof from "@/components/SocialProof/SocialProof"
 export default function Home() {
   return (
     <>
-      <Hero />
-      <SocialProof />
+      <h1>Homepage</h1>
     </>
   )
 }

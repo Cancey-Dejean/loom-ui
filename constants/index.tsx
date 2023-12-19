@@ -1,4 +1,4 @@
-import { MobileMenuTeam } from "@/components/Icons/MobileMenuTeam"
+import { MobileMenuTeam } from "../components/Icons/MobileMenuTeam"
 
 export const companyName: string = "Loom"
 // export const MAX_EXCERPT_LENGTH = 93;
