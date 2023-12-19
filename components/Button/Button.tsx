@@ -12,16 +12,17 @@ const button = cva("btn", {
       text: ["btn-text"],
     },
     size: {
+      small: ["btn-small"],
       medium: ["h-[3rem]"],
-      large: ["large"],
+      large: ["btn-large"],
     },
   },
 })
 
 export const Button = ({
-  className = "",
-  variant = "primary",
-  size = "medium",
+  className,
+  variant,
+  size,
   label,
   url,
   icon,
@@ -46,7 +47,7 @@ export const Button = ({
   /**
    * Description goes here
    */
-  size?: "medium" | "large"
+  size?: "small" | "medium" | "large"
   /**
    * Description goes here
    */

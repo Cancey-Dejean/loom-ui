@@ -14,11 +14,16 @@
     @apply bg-[var(--button-color-fg)] text-[var(--color-violet-70)];
   }
 
-  &.text {
-    @apply min-w-[auto] bg-transparent text-[inherit] hover:transform-none;
+  &.btn-text {
+    @apply hover:!shadow-none hover:transform-none;
   }
 
-  &.large {
-    @apply h-auto py-[21px] px-[42px] text-[21px] sm:text-[25px] sm:px-[100px] sm:py-[25px];
+  &.btn-small {
+    @apply h-[27px] text-[16px] leading-[1];
+  }
+
+  &.btn-large {
+    @apply h-auto py-[21px] px-[42px] sm:px-[100px] sm:py-[25px];
+    font-size: var(--typography-body-lg);
   }
 }

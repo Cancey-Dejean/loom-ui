@@ -1,10 +1,8 @@
 "use client"
-import type { StaticImageData } from "next/image"
 import { useState, useRef, Fragment } from "react"
 import { Dialog, Transition } from "@headlessui/react"
 import Image from "next/image"
 import PlayIcon from "../../../components/Icons/PlayIcon"
-// import { PlayIcon } from "../../atoms/Icons";
 
 export type ModalVideoProps = {
   /**
@@ -34,10 +32,10 @@ export type ModalVideoProps = {
 }
 
 export default function ModalVideo({
-  thumb = "https://dummyimage.com/2020x1136.png/dddddd/ffffff",
-  thumbnailClass = "",
-  thumbAlt = "Modal video thumbnail",
-  videoSrc = "/videos/video.mp4",
+  thumb,
+  thumbnailClass,
+  thumbAlt,
+  videoSrc,
   videoWidth = 1920,
   videoHeight = 1080,
 }: ModalVideoProps) {
@@ -55,8 +53,8 @@ export default function ModalVideo({
         aria-label="Watch the video"
       >
         <Image
-          className={`w-auto h-auto bg-[#ddd]  rounded-[30px] shadow-2xl transition-shadow duration-300 ease-in-out aspect-video ${thumbnailClass}`}
-          src={thumb}
+          className={`w-auto h-auto bg-[#ddd]  rounded-[30px] box-shadow-video transition-shadow duration-300 ease-in-out aspect-video ${thumbnailClass}`}
+          src={thumb || "https://dummyimage.com/2020x1136.png/dddddd/ffffff"}
           width={2020}
           height={1136}
           alt={thumbAlt}
@@ -104,7 +102,10 @@ export default function ModalVideo({
                   controls
                   className="h-full object-cover"
                 >
-                  <source src={videoSrc} type="video/mp4" />
+                  <source
+                    src={videoSrc || "/videos/video.mp4"}
+                    type="video/mp4"
+                  />
                   Your browser does not support the video tag.
                 </video>
               </Dialog.Panel>
