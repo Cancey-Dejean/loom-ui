@@ -5,6 +5,29 @@
   overflow: hidden;
   white-space: nowrap;
   transform: translate3d(0, 0, 0);
+
+  &::before,
+  &::after {
+    background: linear-gradient(to right, var(--gradient-color), transparent);
+    content: "";
+    height: 100%;
+    position: absolute;
+    width: var(--gradient-width);
+    z-index: 2;
+    pointer-events: none;
+    touch-action: none;
+  }
+
+  &::before {
+    left: 0;
+    top: 0;
+  }
+
+  &::after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+  }
 }
 
 .wrapper:hover {
@@ -18,8 +41,6 @@
   align-items: center;
   animation: marquee 10s linear infinite;
   animation-play-state: running;
-  -webkit-backface-visibility: hidden;
-  -webkit-transform-style: preserve-3d;
   will-change: transform;
   font-size: 30px;
 }

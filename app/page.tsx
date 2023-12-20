@@ -1,10 +1,9 @@
-import Hero from "@/components/Hero"
-import SocialProof from "@/components/SocialProof/SocialProof"
+import Card from "@/components/Card"
 
 export default function Home() {
   return (
     <>
-      <h1>Homepage</h1>
+      <Card />
     </>
   )
 }

@@ -16,15 +16,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <SkipToContent />
-        <Header />
+        {/* <SkipToContent /> */}
+        {/* <Header /> */}
         <main
           id="main-content"
           className="flex-1 mt-[var(--thd-nav-h-sm)] sm:mt-[var(--thd-nav-h-lg)]"
         >
           {children}
         </main>
-        <footer>FOoter</footer>
+        {/* <footer>FOoter</footer> */}
       </body>
     </html>
   )
