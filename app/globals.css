@@ -54,6 +54,9 @@
   /* 20px/18px */
   --typography-body-md: clamp(1.125rem, 1.09rem + 0.16vw, 1.25rem);
 
+  /* 18px/16px */
+  /* --typography-body-caption: */
+
   /* Borders */
   --border-width: 0.285em;
 

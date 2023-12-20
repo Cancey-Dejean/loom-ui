@@ -1,0 +1,31 @@
+.wrapper {
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+  transform: translate3d(0, 0, 0);
+}
+
+.wrapper:hover {
+  .mover {
+    animation-play-state: paused;
+  }
+}
+
+.mover {
+  display: inline-flex;
+  align-items: center;
+  animation: marquee 10s linear infinite;
+  animation-play-state: running;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+  will-change: transform;
+  font-size: 30px;
+}
+
+@keyframes marquee {
+  100% {
+    transform: translateX(-100%);
+  }
+}
